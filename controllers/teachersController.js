@@ -20,8 +20,15 @@ exports.create = (req,res) => {
 exports.show = (req,res) => {
   Teacher.findAll({where:{
     id: req.params.id
-  }}).then((responce)=>res.send(responce))
-  .catch((error)=>console.log(error));
+  }})
+  .then((responce)=>{
+    if(responce.length === 0){
+      return(res.send({message:'cant find user'}))
+    } else {
+      return(res.send(responce))
+    }
+  })
+  .catch((error)=>console.log(error))
 };
 
 //Update Teacher by ID

@@ -21,7 +21,13 @@ exports.show = (req,res) => {
   Student.findAll({where:{
     id: req.params.id
   }})
-  .then((responce)=>res.send(responce))
+  .then((responce)=>{
+    if(responce.length === 0){
+      return(res.send({message:'cant find user'}))
+    } else {
+      return(res.send(responce))
+    }
+  })
   .catch((error)=>console.log(error))
 }
 
