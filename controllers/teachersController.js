@@ -23,13 +23,15 @@ exports.show = (req,res) => {
 //Update Teacher by ID
 exports.update = (req,res) => {
   Teacher.update({name:req.body.name},{where:{id:req.params.id}})
-  // This is updating but only returning an array with the number 1 ?
-  .then(updatedTeacher=>res.send(updatedTeacher));
+  //using 204 to be replaces with the updated object or object deleted
+  .then((responce=>res.sendStatus(204)));
 };
 
 //Delete Teacher by ID
 exports.delete = (req,res) => {
   Teacher.destroy({where:{
     id: req.params.id
-  }}).then((responce)=>res.sendStatus(responce));
+  }})
+  //using 204 to be replaces with the updated object or object deleted  
+  .then((responce)=>res.sendStatus(204));
 };
