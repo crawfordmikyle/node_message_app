@@ -5,7 +5,6 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Student.associate = function(models) {
-    // Student.belongsTo(models.Teacher,{as: 'teacher'}),
     Student.hasMany(models.StudentLab,{as: 'studentLabs'})
   }
 

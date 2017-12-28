@@ -5,7 +5,6 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   StudentLab.associate = (models) => {
-    // StudentLab.belongsTo(models.Student,{as: 'student'}),
     StudentLab.belongsTo(models.Lab,{as: 'lab'})
   }
 
