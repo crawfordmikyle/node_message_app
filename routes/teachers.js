@@ -4,13 +4,13 @@ const Teacher = require('../models').Teacher;
 const teachersController = require('../controllers/teachersController');
 
 // index
-router.get('/',teachersController.index)
+router.get('/',teachersController.index);
 // create
-router.post('/',teachersController.create)
+router.post('/',teachersController.create);
 // show
-router.get('/:id',teachersController.show)
+router.get('/:id',teachersController.show);
 //update
-
+router.put('/:id',teachersController.update);
 //delete
 
 module.exports = router;
