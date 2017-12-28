@@ -31,5 +31,5 @@ exports.update = (req,res) => {
 exports.delete = (req,res) => {
   Teacher.destroy({where:{
     id: req.params.id
-  }}).then((responce)=>res.send(responce));
+  }}).then((responce)=>res.sendStatus(responce));
 };

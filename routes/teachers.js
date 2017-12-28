@@ -12,5 +12,6 @@ router.get('/:id',teachersController.show);
 //update
 router.put('/:id',teachersController.update);
 //delete
+router.delete('/:id',teachersController.delete);
 
 module.exports = router;
