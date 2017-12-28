@@ -3,11 +3,11 @@ var router = express.Router();
 const Teacher = require('../models').Teacher;
 const teachersController = require('../controllers/teachersController');
 
-// index
+//index
 router.get('/',teachersController.index);
-// create
+//create
 router.post('/',teachersController.create);
-// show
+//show
 router.get('/:id',teachersController.show);
 //update
 router.put('/:id',teachersController.update);

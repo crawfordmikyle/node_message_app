@@ -23,9 +23,9 @@ exports.show = (req,res) => {
   }})
   .then((responce)=>{
     if(responce.length === 0){
-      return(res.send({message:'cant find user'}))
+      return(res.send({message:'cant find user'}));
     } else {
-      return(res.send(responce))
+      return(res.send(responce));
     }
   })
   .catch((error)=>console.log(error))
