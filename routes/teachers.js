@@ -1,22 +1,16 @@
 var express = require('express');
 var router = express.Router();
 const Teacher = require('../models').Teacher;
+const teachersController = require('../controllers/teachersController');
 
-router.get('/', function(req, res, next) {
-  Teacher.findAll({include:['students']}).then((responce)=>res.send(responce))
-});
+// index
+router.get('/',teachersController.index)
+// create
+router.post('/',teachersController.create)
+// show
+router.get('/:id',teachersController.show)
+//update
 
-router.post('/',function(req,res,next){
-  Teacher.create({
-    name: req.body.name
-  })
-  .then((responce)=>res.send(responce))
-})
-
-router.get('/:id', function(req,res,next){
-  Teacher.findAll({where:{
-    id: req.params.id
-  }}).then((responce)=>res.send(responce))
-});
+//delete
 
 module.exports = router;
