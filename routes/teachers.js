@@ -13,5 +13,7 @@ router.get('/:id',teachersController.show);
 router.put('/:id',teachersController.update);
 //delete
 router.delete('/:id',teachersController.delete);
+//Assign Student To Teacher
+router.put('/:id/students',teachersController.assignStudent);
 
 module.exports = router;

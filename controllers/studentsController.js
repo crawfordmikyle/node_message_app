@@ -1,5 +1,5 @@
 const Student = require('../models').Student;
-
+const Teacher = require('../models').Teacher;
 // Get All Students
 exports.index = (req,res) => {
   Student.findAll()
@@ -48,8 +48,3 @@ exports.delete = (req,res) => {
   .then((responce)=>res.sendStatus(204))
   .catch((error)=>console.log(error))
 };
-
-// Assign Teacher
-exports.assignTeacher = (req,res) => {
-  
-}

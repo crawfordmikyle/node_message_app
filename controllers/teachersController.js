@@ -1,8 +1,8 @@
 const Teacher = require('../models').Teacher;
-
+const Student = require('../models').Student;
 // Get All Teachers
 exports.index = (req,res) => {
-  Teacher.findAll({include:['students']})
+  Teacher.findAll()
   .then((responce)=>res.send(responce))
   .catch((error)=>console.log(error));
 };
@@ -18,9 +18,12 @@ exports.create = (req,res) => {
 
 // Get Teacher by ID
 exports.show = (req,res) => {
-  Teacher.findAll({where:{
-    id: req.params.id
-  }})
+  Teacher.findAll(
+    {where:{
+      id: req.params.id
+    },
+    include:['students']
+  })
   .then((responce)=>{
     if(responce.length === 0){
       return(res.send({message:'cant find user'}));
@@ -48,3 +51,19 @@ exports.delete = (req,res) => {
   .then((responce)=>res.sendStatus(204))
   .catch((error)=>console.log(error));
 };
+
+//Assign Student
+exports.assignStudent = (req,res) => {
+  Teacher.findOne({where:{
+    id: req.params.id
+  }})
+  .then((teacher)=>{
+    Student.findOne({where:{
+      id: req.body.studentId
+    }})
+    .then((student)=>{
+      teacher.addStudent(student)
+    })
+    .then((responce)=>res.send(responce))
+  })
+}
