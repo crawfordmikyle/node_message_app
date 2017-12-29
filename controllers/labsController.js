@@ -10,7 +10,8 @@ exports.index = (req,res) => {
 // Create New Lab
 exports.create = (req,res) => {
   Lab.create({
-    name: req.body.name
+    title: req.body.title,
+    body: req.body.body
   })
   .then((responce)=>res.send(responce))
   .catch((error)=>console.log(error))
@@ -33,7 +34,10 @@ exports.show = (req,res) => {
 
 // Update Lab by Id
 exports.update = (req,res) => {
-  Lab.update({name:req.body.name},{where:{id:req.params.id}})
+  Lab.update({
+    title: req.body.title,
+    body: req.body.body
+  },{where:{id:req.params.id}})
   //using 204 to be replaces with the updated object or object deleted
   .then((responce)=>res.sendStatus(204))
   .catch((error)=>console.log(error));

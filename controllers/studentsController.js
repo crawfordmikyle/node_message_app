@@ -45,5 +45,5 @@ exports.delete = (req,res) => {
   }})
   //using 204 to be replaces with the updated object or object deleted  
   .then((responce)=>res.sendStatus(204))
-  .catch((error)=>console.log(error));
+  .catch((error)=>console.log(error))
 }

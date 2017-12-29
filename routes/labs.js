@@ -1,11 +1,17 @@
 var express = require('express');
 var router = express.Router();
-var Labs = require('../models').Labs;
+const Labs = require('../models').Labs;
+const labsController = require('../controllers/labsController')
 
-router.get('/labs',function(req,res,next){
-  Labs.findAll({})
-  .then((responce) => res.send(responce))
-})
-
+//index
+router.get('/',labsController.index);
+//create
+router.post('/',labsController.create);
+//show
+router.get('/:id',labsController.show);
+//update
+router.put('/:id',labsController.update);
+//delete
+router.delete('/:id',labsController.delete);
 
 module.exports = router;

@@ -3,12 +3,11 @@ module.exports = (sequelize, DataTypes) => {
   var Lab = sequelize.define('Lab', {
     title: DataTypes.STRING,
     body: DataTypes.TEXT
-  }, {
-    classMethods: {
-      associate: function(models) {
-        Lab.belongsTo(models.Student)
-      }
-    }
   });
+
+  Lab.associate = (models) => {
+    Lab.belongsTo(models.Student,{as: 'student'});
+  }
+
   return Lab;
 };
