@@ -48,8 +48,3 @@ exports.delete = (req,res) => {
   .then((responce)=>res.sendStatus(204))
   .catch((error)=>console.log(error));
 };
-
-//Add or Create Student to Teacher
-exports.addStudent = (req,res) => {
-  
-}

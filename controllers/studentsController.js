@@ -5,7 +5,7 @@ exports.index = (req,res) => {
   Student.findAll()
   .then((responce)=>res.send(responce))
   .catch((error)=>console.log(error))
-}
+};
 
 // Create New Student
 exports.create = (req,res) => {
@@ -14,7 +14,7 @@ exports.create = (req,res) => {
   })
   .then((responce)=>res.send(responce))
   .catch((error)=>console.log(error))
-}
+};
 
 // Show Student by Id
 exports.show = (req,res) => {
@@ -29,7 +29,7 @@ exports.show = (req,res) => {
     }
   })
   .catch((error)=>console.log(error))
-}
+};
 
 // Update Student by Id
 exports.update = (req,res) => {
@@ -37,7 +37,8 @@ exports.update = (req,res) => {
   //using 204 to be replaces with the updated object or object deleted
   .then((responce)=>res.sendStatus(204))
   .catch((error)=>console.log(error));
-}
+};
+
 // Delete Student by Id
 exports.delete = (req,res) => {
   Student.destroy({where:{
@@ -46,4 +47,9 @@ exports.delete = (req,res) => {
   //using 204 to be replaces with the updated object or object deleted  
   .then((responce)=>res.sendStatus(204))
   .catch((error)=>console.log(error))
+};
+
+// Assign Teacher
+exports.assignTeacher = (req,res) => {
+  
 }
