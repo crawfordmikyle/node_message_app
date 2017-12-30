@@ -18,9 +18,7 @@ exports.create = (req,res) => {
 
 // Show Student by Id
 exports.show = (req,res) => {
-  Student.findAll({where:{
-    id: req.params.id
-  }})
+  Student.findById(req.params.id)
   .then((responce)=>{
     if(responce.length === 0){
       return(res.send({message:'cant find user'}))

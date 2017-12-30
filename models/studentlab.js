@@ -5,8 +5,8 @@ module.exports = (sequelize, DataTypes) => {
   StudentLab.associate = (models) => {
     StudentLab.hasOne(models.Note)
     StudentLab.hasMany(models.Comment)
-    StudentLab.hasOne(models.Student)
-    StudentLab.hasOne(models.Lab)
+    StudentLab.belongsTo(models.Student)
+    StudentLab.belongsTo(models.Lab)
   }
   return StudentLab;
 };
