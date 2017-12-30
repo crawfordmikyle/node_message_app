@@ -46,14 +46,3 @@ exports.delete = (req,res) => {
   .then((responce)=>res.sendStatus(204))
   .catch((error)=>console.log(error))
 };
-
-// Get Labs
-exports.getStudentLabs = (req,res) => {
-  Student.findOne({where:{
-    id: req.params.id
-  }})
-  .then((student) => {
-    student.getStudentLabs()
-  })
-  .then((studentLabs) => res.send(studentLabs))
-}

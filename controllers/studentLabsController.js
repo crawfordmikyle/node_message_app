@@ -15,3 +15,10 @@ exports.create = (req,res) => {
   })
   .then((studentLab)=>res.send(studentLab))
 };
+
+//Delete Student Lab By ID
+exports.delete = (req,res) => {
+  StudentLab.destroy({where:{
+    id: req.params.id
+  }})
+}

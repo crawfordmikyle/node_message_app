@@ -13,7 +13,5 @@ router.get('/:id',studentsController.show);
 router.put('/:id',studentsController.update);
 //delete
 router.delete('/:id',studentsController.delete);
-//student labs
-router.get('/:id/labs',studentsController.getStudentLabs)
 
 module.exports = router;
