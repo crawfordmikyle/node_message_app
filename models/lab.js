@@ -5,9 +5,5 @@ module.exports = (sequelize, DataTypes) => {
     content: DataTypes.TEXT
   });
 
-  Lab.associate = (models) => {
-    Lab.hasMany(models.StudentLab)
-  }
-
   return Lab;
 };
