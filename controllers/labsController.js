@@ -5,7 +5,7 @@ exports.index = (req,res) => {
   Lab.findAll()
   .then((responce)=>res.send(responce))
   .catch((error)=>console.log(error))
-}
+};
 
 // Create New Lab
 exports.create = (req,res) => {
@@ -15,7 +15,7 @@ exports.create = (req,res) => {
   })
   .then((responce)=>res.send(responce))
   .catch((error)=>console.log(error))
-}
+};
 
 // Show Lab by Id
 exports.show = (req,res) => {
@@ -30,7 +30,7 @@ exports.show = (req,res) => {
     }
   })
   .catch((error)=>console.log(error))
-}
+};
 
 // Update Lab by Id
 exports.update = (req,res) => {
@@ -41,7 +41,7 @@ exports.update = (req,res) => {
   //using 204 to be replaces with the updated object or object deleted
   .then((responce)=>res.sendStatus(204))
   .catch((error)=>console.log(error));
-}
+};
 // Delete Lab by Id
 exports.delete = (req,res) => {
   Lab.destroy({where:{
@@ -50,4 +50,4 @@ exports.delete = (req,res) => {
   //using 204 to be replaces with the updated object or object deleted  
   .then((responce)=>res.sendStatus(204))
   .catch((error)=>console.log(error));
-}
+};

@@ -21,4 +21,5 @@ exports.delete = (req,res) => {
   StudentLab.destroy({where:{
     id: req.params.id
   }})
-}
+  .then((responce)=>res.send({message: 'student lab deleted'}))
+};
