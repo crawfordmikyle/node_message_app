@@ -2,11 +2,11 @@
 module.exports = (sequelize, DataTypes) => {
   var Lab = sequelize.define('Lab', {
     title: DataTypes.STRING,
-    body: DataTypes.TEXT
+    content: DataTypes.TEXT
   });
 
   Lab.associate = (models) => {
-    Lab.belongsTo(models.Student,{as: 'student'});
+    Lab.hasMany(models.StudentLab)
   }
 
   return Lab;
