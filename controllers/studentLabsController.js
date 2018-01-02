@@ -1,9 +1,10 @@
+'use strict';
 const StudentLab = require('../models').StudentLab;
-var Student = require('../models').Student;
-var Lab = require('../models').Lab;
+const Student = require('../models').Student;
+const Lab = require('../models').Lab;
 //Index
 exports.index = (req,res) => {
-  StudentLab.findAll({include:['Student','Lab']})
+  StudentLab.findAll({include:['Student','Lab','Note','Comments']})
   .then((labs)=>res.send(labs))
 };
 

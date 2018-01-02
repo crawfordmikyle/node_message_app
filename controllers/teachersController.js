@@ -1,5 +1,7 @@
+'use strict';
 const Teacher = require('../models').Teacher;
 const Student = require('../models').Student;
+
 // Get All Teachers
 exports.index = (req,res) => {
   Teacher.findAll()

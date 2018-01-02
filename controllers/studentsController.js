@@ -1,3 +1,4 @@
+'use strict';
 const Student = require('../models').Student;
 const Teacher = require('../models').Teacher;
 // Get All Students

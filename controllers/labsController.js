@@ -1,3 +1,4 @@
+'use strict';
 const Lab = require('../models').Lab;
 
 // Get All Labs

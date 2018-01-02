@@ -4,12 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// Route Imports
+// Import Your Routes Here
 var index = require('./routes/index');
 var teachers = require('./routes/teachers')
 var students = require('./routes/students')
 var labs = require('./routes/labs')
 var studentLabs = require('./routes/studentLabs')
+var notes = require('./routes/notes')
 // app
 var app = express();
 
@@ -25,11 +26,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Set Your Routes Here
 app.use('/', index);
 app.use('/teachers', teachers);
 app.use('/students', students);
 app.use('/labs', labs);
 app.use('/studentlabs',studentLabs);
+app.use('/notes',notes)
+app.use('/comments',comments)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

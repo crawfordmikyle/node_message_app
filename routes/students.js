@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+'use strict';
+const express = require('express');
+const router = express.Router();
 const Student = require('../models').Student;
 const studentsController = require('../controllers/studentsController');
 
