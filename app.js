@@ -11,7 +11,7 @@ const students = require('./routes/students')
 const labs = require('./routes/labs')
 const studentLabs = require('./routes/studentLabs')
 const notes = require('./routes/notes')
-//const comments = require('./routes/comments')
+const comments = require('./routes/comments')
 // app
 var app = express();
 
@@ -34,7 +34,7 @@ app.use('/students', students);
 app.use('/labs', labs);
 app.use('/studentlabs',studentLabs);
 app.use('/notes',notes)
-//app.use('/comments',comments)
+app.use('/comments',comments)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
