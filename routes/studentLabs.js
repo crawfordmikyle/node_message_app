@@ -5,7 +5,9 @@ const studentLabsController = require('../controllers/studentLabsController');
 
 //index for dev only
 router.get('/',studentLabsController.index);
-//Create New Student Lab
+//Show StudentLab By Id
+router.get('/:id',studentLabsController.show)
+//Create New StudentLab
 router.post('/',studentLabsController.create);
 //Delete Student Lab By Id
 router.delete('/:id',studentLabsController.delete);

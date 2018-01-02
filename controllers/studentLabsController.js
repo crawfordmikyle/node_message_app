@@ -8,7 +8,13 @@ exports.index = (req,res) => {
   .then((labs)=>res.send(labs))
 };
 
-//Create New Student Lab
+//Get StudentLab By ID
+exports.show = (req,res) => {
+  StudentLab.findById(req.params.id,{include:['Student','Lab','Note','Comments']})
+  .then((studentLab)=>res.send(studentLab))
+}
+
+//Create New StudentLab
 exports.create = (req,res) => {
   StudentLab.create({
     LabId: req.body.labId,
@@ -17,7 +23,7 @@ exports.create = (req,res) => {
   .then((studentLab)=>res.send(studentLab))
 };
 
-//Delete Student Lab By ID
+//Delete StudentLab By ID
 exports.delete = (req,res) => {
   StudentLab.destroy({where:{
     id: req.params.id

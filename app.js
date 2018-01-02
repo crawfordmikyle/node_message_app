@@ -1,16 +1,17 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 // Import Your Routes Here
-var index = require('./routes/index');
-var teachers = require('./routes/teachers')
-var students = require('./routes/students')
-var labs = require('./routes/labs')
-var studentLabs = require('./routes/studentLabs')
-var notes = require('./routes/notes')
+const index = require('./routes/index');
+const teachers = require('./routes/teachers')
+const students = require('./routes/students')
+const labs = require('./routes/labs')
+const studentLabs = require('./routes/studentLabs')
+const notes = require('./routes/notes')
+//const comments = require('./routes/comments')
 // app
 var app = express();
 
@@ -33,7 +34,7 @@ app.use('/students', students);
 app.use('/labs', labs);
 app.use('/studentlabs',studentLabs);
 app.use('/notes',notes)
-app.use('/comments',comments)
+//app.use('/comments',comments)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
