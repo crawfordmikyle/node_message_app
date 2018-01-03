@@ -6,6 +6,13 @@ const getAllTeachers = (teachers) => {
   });
 };
 
+const getTeacherData = (teacher) => {
+  return({
+    type: 'GET_TEACHER_DATA',
+    teacher: teacher,
+  });
+};
+
 
 // Asynchronous Actions
 
@@ -17,3 +24,7 @@ export const asyncGetAllTeachers = () => {
       .catch((error)=>console.log(error))
   };
 };
+
+export const asyncGetTeacherData = (teacherData) => {
+
+}
