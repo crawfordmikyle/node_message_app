@@ -4,14 +4,15 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+const cors = require('cors')
 // Import Your Routes Here
 const index = require('./routes/index');
-const teachers = require('./routes/teachers')
-const students = require('./routes/students')
-const labs = require('./routes/labs')
-const studentLabs = require('./routes/studentLabs')
-const notes = require('./routes/notes')
-const comments = require('./routes/comments')
+const teachers = require('./routes/teachers');
+const students = require('./routes/students');
+const labs = require('./routes/labs');
+const studentLabs = require('./routes/studentLabs');
+const notes = require('./routes/notes');
+const comments = require('./routes/comments');
 // app
 var app = express();
 
@@ -26,15 +27,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+app.use(cors());
 // Set Your Routes Here
 app.use('/', index);
 app.use('/teachers', teachers);
 app.use('/students', students);
 app.use('/labs', labs);
 app.use('/studentlabs',studentLabs);
-app.use('/notes',notes)
-app.use('/comments',comments)
+app.use('/notes',notes);
+app.use('/comments',comments);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
