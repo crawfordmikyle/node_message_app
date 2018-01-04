@@ -22,6 +22,6 @@ const mapStateToProps = (state) => {
   return({
     teachers: state.teachersReducer
   })
-}
+};
 
 export default connect(mapStateToProps,{asyncGetAllTeachers})(TeachersList)
