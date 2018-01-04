@@ -20,10 +20,7 @@ exports.create = (req,res) => {
 
 // Get Teacher by ID
 exports.show = (req,res) => {
-  Teacher.findAll(
-    {where:{
-      id: req.params.id
-    },
+  Teacher.findById(req.params.id,{
     include:['students']
   })
   .then((responce)=>{

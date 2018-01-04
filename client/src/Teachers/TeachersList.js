@@ -19,7 +19,6 @@ class TeachersList extends Component {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return({
     teachers: state.teachersReducer
   })

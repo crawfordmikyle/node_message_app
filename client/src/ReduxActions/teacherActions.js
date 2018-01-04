@@ -7,15 +7,10 @@ const getTeacherData = (teacherData) =>{
 };
 // Asynchronous Actions
 
-export const asyncGetTeacherData = (teacher) => {
-  const config = {
-    method: 'GET',
-    headers:{'Content-Type':'application/json'},
-  };
-
+export const asyncGetTeacherData = (teacherId) => {
   return dispatch => {
-    return fetch(`http://localhost/teachers/${teacher.id}`,config)
-    .then((responce)=>responce.json)
+    return fetch(`http://localhost:3000/teachers/${teacherId}`)
+    .then((responce)=>responce.json())
     .then((teacherData)=>dispatch(getTeacherData(teacherData)))
     .catch((error)=>console.log(error))
   };
