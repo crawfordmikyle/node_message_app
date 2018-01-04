@@ -18,8 +18,11 @@ class TeachersList extends Component {
   }
 };
 
-const mapStateToProps = (state) => ({
-  teachers: state.teachersReducer
-})
+const mapStateToProps = (state) => {
+  console.log(state)
+  return({
+    teachers: state.teachersReducer
+  })
+}
 
 export default connect(mapStateToProps,{asyncGetAllTeachers})(TeachersList)

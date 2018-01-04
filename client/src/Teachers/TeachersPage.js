@@ -1,9 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {asyncGetTeacherData} from '../ReduxActions/teacherActions'
 
 class TeachersPage extends Component{
+  componentDidMount(){
+    this.props.asyncGetTeacherData()
+  }
   
-
   render(){
     return(
       <div className='TeacherPage'>
@@ -14,16 +17,7 @@ class TeachersPage extends Component{
 }
 
 const mapStateToProps = (state,ownProps) =>{
-  // Set Requested Teacher
-  const teacher = state.teachersReducer.find((teacher)=>{
-    teacher.id.toString() === ownProps.match.params.id
-  })
-  
-  if(teacher){
-    return({teacher})
-  } else {
-    return({teacher: {message: 'Teacher Not Found'}})
-  }
+
 }
 
-export default connect(mapStateToProps)(TeachersPage)
+export default connect(null,{asyncGetTeacherData})(TeachersPage)

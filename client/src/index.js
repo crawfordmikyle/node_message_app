@@ -10,6 +10,7 @@ import { Route, Switch } from 'react-router-dom'
 import App from './MainPage/App';
 import TeachersPage from './Teachers/TeachersPage'
 //Import Reducers
+import teacherReducer from './ReduxReducers/teacherReducer'
 import teachersReducer from './ReduxReducers/teachersReducer'
 //Import Reducers End 
 
@@ -18,6 +19,7 @@ const middleware = [thunk];
 
 //Set Root Reducer
 const rootReducer = combineReducers({
+  teacherReducer,
   teachersReducer,
 });
 
@@ -31,12 +33,12 @@ let store = createStore(
 //Render App
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
-      <Switch>
-        <Route exact path="/" component={App}/>
-        <Route exact path="/teachers/:id" component={TeachersPage}/>
-      </Switch>
-    </Router>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={App}/>
+          <Route exact path="/teachers/:id" component={TeachersPage}/>
+        </Switch>
+      </Router>
   </Provider>,
   document.getElementById('root')
 )
