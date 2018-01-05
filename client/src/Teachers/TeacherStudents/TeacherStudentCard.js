@@ -9,18 +9,33 @@ class TeacherStudentCard extends Component{
     }
   }
 
+  handleOnClick = (event) => {
+    if(this.state.expanded === false){
+      this.setState({expanded: true})
+    } else {
+      this.setState({expanded: false})
+    };
+  };
+
 
   render(){
     if(this.state.expanded === false){
       return(
-        <SmallStudentCard/>
-      )
+        <div>
+          <SmallStudentCard student={this.props.studentData}/>
+          <button onClick={event=>this.handleOnClick(event)}>Show Student Data</button>
+        </div>
+      );
     } else {
       return(
-        <ExtendedStudentCard/>
-      )
+        <div>
+          <ExtendedStudentCard student={this.props.studentData}/>
+          <button onClick={event=>this.handleOnClick(event)}>Hide Student Data</button>
+        </div>
+      );
     }
-  }
-}
+  };
 
-export default TeacherStudentCard
+};
+
+export default TeacherStudentCard;

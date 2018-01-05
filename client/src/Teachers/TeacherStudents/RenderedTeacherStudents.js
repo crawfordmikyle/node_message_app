@@ -5,7 +5,7 @@ import TeacherStudentCard from './TeacherStudentCard'
 const RenderedTeacherStudents = (props) => {
   const studentsList = props.teacherStudents.map((student)=>{
     return(
-      <TeacherStudentCard key={student.id} studentDaya={student}/>
+      <TeacherStudentCard key={student.id} studentData={student}/>
     )
   })
 
